@@ -3,10 +3,10 @@ function getPlot(id) {
     
     // get the data from the json file
     d3.json("../../samples.json").then((data)=> {
-        console.log(data)
-
+        console.log(data)        
         var wfreq = data.metadata.map(d => d.wfreq)
         console.log(`Washing Freq: ${wfreq}`)
+        console.log(wfreq)
 
         // filter sample values by id 
         var samples = data.samples.filter(s => s.id.toString() === id)[0];
@@ -29,7 +29,7 @@ function getPlot(id) {
 
         console.log(`Sample Values: ${sampleValues}`)
         console.log(`Id Values: ${idValues}`)
-        buildGauge(wfreq);
+       
 
         
         // create trace variable for the plot
@@ -39,6 +39,7 @@ function getPlot(id) {
             text: labels,
             type:"bar",
             orientation: "h",
+            marker: {color: "#D2A7E2"},
         };
 
         // create data variable
@@ -55,7 +56,8 @@ function getPlot(id) {
                 r: 100,
                 t: 30,
                 b: 20
-            }
+            },
+            
         };
 
         // create the bar plot
@@ -116,6 +118,8 @@ function getInfo(id) {
 
         // filter meta data info by id
         var result = metadata.filter(meta => meta.id.toString() === id)[0];
+        console.log(result.wfreq)
+        buildGauge(result.wfreq);
 
         // select demographic panel to put data
         var demographicInfo = d3.select("#sample-metadata");
@@ -126,9 +130,11 @@ function getInfo(id) {
         // grab the necessary demographic data data for the id and append the info to the panel
         Object.entries(result).forEach((key) => {   
                 demographicInfo.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");    
+                
         });
     });
 }
+
 
 // create the function for the change event
 function optionChanged(id) {
