@@ -18,7 +18,7 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 * Use `otu_labels` as the hovertext for the chart.
 
-  ![bar Chart](images/bar.png)
+  ![bar Chart](images/bar.png){:height="50%" width="50%"}
 
 3. Create a bubble chart that displays each sample.
 
@@ -38,7 +38,7 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 5. Display each key-value pair from the metadata JSON object somewhere on the page.
 
-![hw](Images/info.png)
+![hw](images/info.png)
 
 ## Advanced Challenge
 
@@ -48,7 +48,7 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 * Update the chart whenever a new sample is selected.
 
-![Weekly Washing Frequency Gauge](Images/g.png)
+![Weekly Washing Frequency Gauge](images/g.png)
 
 ### About the Data
 
